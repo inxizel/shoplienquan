@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 
+
+
 //Admin
 Route::get('/admin', function () {
     return redirect('admin/login');
@@ -32,8 +34,9 @@ Route::prefix('admin')->group(function(){
 		Route::get('/dashboard',function(){
 			return view ('admin.dashboard.index');
 		});
-
 		Route::resource('/user','UserController');
+
+		Route::resource('/lienquan/rank','LienquanRankController');
 		Route::resource('/lienquan','LienquanController');
 
 		Route::get('/product/detail/{id}', 'ProductController@detail');	
@@ -43,9 +46,14 @@ Route::prefix('admin')->group(function(){
 			return view('admin.product.uploadImages');
 		});	
 		Route::post('/product-image','ProductController@uploadImages');	
+
+
+
+
 	});
 
 });		
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

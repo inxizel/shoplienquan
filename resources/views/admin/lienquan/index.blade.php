@@ -58,10 +58,10 @@
       <thead>
         <tr>
           <th class="wd-5p">ID</th>
-          <th class="wd-5p">Code</th>
-          <th class="wd-15p">Name</th>
-          <th class="wd-5p">Category</th>
-          <th class="wd-5p">Brand</th>
+          <th class="wd-5p">Tài Khoản</th>
+          <th class="wd-5p">Số Tướng</th>
+          <th class="wd-5p">Số Skin</th>
+          <th class="wd-5p">Điểm Ngọc</th>
           <th class="wd-5p">Price</th>
           <th class="wd-10p">Created At</th>
           <th class="wd-15p">Action</th>
@@ -71,11 +71,11 @@
         @foreach($lienquans as $row)
         <tr>
           <td>{{$row->id}}</td>
-          <td>{{$row->product_code}}</td>
-          <td>{{$row->name}}</td>
-          <td>{{$row->category_name}}</td>
-          <td>{{$row->brand_name}}</td>
-          <td><b>{{number_format($row->price)}}</b><sup>vnd</sup></td>
+          <td>{{$row->taikhoan}}</td>
+          <td>{{$row->count_champs}}</td>
+          <td>{{$row->count_skins}}</td>
+          <td>{{$row->diemngoc}}</td>
+          <td><b>{{number_format($row->gia)}}</b><sup>vnd</sup></td>
           <td>{{ $row->created_at }}</td>      
           <td>
             <a href="javascript:;" class="btn btn-outline-primary btn-icon mg-r-5 btn-edit" data-id="{{$row->id}}"> 

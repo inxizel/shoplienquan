@@ -79,6 +79,19 @@
         <ul class="br-menu-sub nav flex-column">
           <li class="nav-item"><a href="/admin/lienquan" class="nav-link">List Account</a></li>
           <li class="nav-item"><a href="/admin/lienquan/create" class="nav-link">Add New</a></li>
+          <li class="nav-item"><a href="/admin/lienquan/rank" class="nav-link">Ranks</a></li>
+        </ul>
+
+        <a href="#" class="br-menu-link setting">
+          <div class="br-menu-item">
+            <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+            <span class="menu-item-label">Setting</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <ul class="br-menu-sub nav flex-column">
+          <li class="nav-item"><a href="/admin/lienquan" class="nav-link">List Account</a></li>
+          <li class="nav-item"><a href="/admin/lienquan/create" class="nav-link">Add New</a></li>
         </ul>
    
       </div><!-- br-sideleft-menu -->
