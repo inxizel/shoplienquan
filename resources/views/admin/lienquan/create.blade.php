@@ -21,7 +21,7 @@
   <nav class="breadcrumb pd-0 mg-0 tx-12">
     <a class="breadcrumb-item" href="index.html">Bracket</a>
     <a class="breadcrumb-item" href="#">Forms</a>
-    <span class="breadcrumb-item active">Form Elements</span>
+    <span clxss="breadcrumb-item active">Form Elements</span>
   </nav>
 </div>
 <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
@@ -188,38 +188,29 @@
 		</div>
 	</div>       
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<div class="form-group remove-margin-b">
 				<label class="css-input switch switch-sm switch-primary">
-					<input type="checkbox" id="kichhoat" name="kichhoat" <?php echo "checked='true'"; ?>/>
+					<input type="checkbox" id="kichhoat" name="kichhoat" @if($kichhoat == 'yes') checked="true" @endif />
 					<span></span> Kích hoạt?
 	                
 				</label>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<div class="form-group remove-margin-b">
 				<label class="css-input switch switch-sm switch-primary">
-					<input type="checkbox" id="trangthai" name="trangthai" <?php  echo "checked='true'" ?>/>
+					<input type="checkbox" id="trangthai" name="trangthai" @if($trangthai == 'on') checked="true" @endif />
 					<span></span> Trạng Thái
 	                
 				</label>
 			</div>
 		</div>
 		
-		<div class="col-md-3">
+		<div class="col-md-4">
 		    <div class="form-group remove-margin-b">
 				<label class="css-input switch switch-sm switch-primary">
-					<input type="checkbox" id="fb" name="fb" <?php  echo "checked='true'" ?> />
-					<span></span> Facebook
-	                
-				</label>
-			</div>
-		</div>
-		<div class="col-md-3">
-		    <div class="form-group remove-margin-b">
-				<label class="css-input switch switch-sm switch-primary">
-					<input type="checkbox" id="thongtin" name="thongtin" <?php echo "checked='true'" ?> />
+					<input type="checkbox" id="thongtin" name="thongtin" @if($thongtin == '1') checked="true" @endif />
 					<span></span> Thông Tin
 	                
 				</label>

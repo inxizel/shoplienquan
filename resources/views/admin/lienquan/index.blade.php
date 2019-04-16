@@ -97,6 +97,7 @@
         
       </tbody>
     </table>
+    {{$lienquans->links()}}
 
   </div>
 </div>

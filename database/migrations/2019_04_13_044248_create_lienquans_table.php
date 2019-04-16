@@ -27,15 +27,15 @@ class CreateLienquansTable extends Migration
             $table->integer('giamgia')->default(0);
             $table->integer('fb')->default(1);;
             $table->integer('thongtin');
-            $table->integer('uutien');
+            $table->integer('uutien')->default(0);
             $table->string('trangthai');
             $table->string('kichhoat');
             $table->integer('count_champs');
             $table->integer('count_skins');
             $table->integer('count_bangngoc');
             $table->integer('diemngoc');
-            $table->integer('thumb_id');
-            $table->integer('image_id');
+            $table->integer('thumb_id')->nullable();
+            $table->integer('image_id')->nullable();
             $table->integer('user_id');
 
 

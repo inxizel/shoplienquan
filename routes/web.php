@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+
+ //    $kichhoat = cookie('kichhoat', 'yes', 60*24*365);
+	// return response('Hello World')->cookie($kichhoat);
 });
 
 

@@ -18,7 +18,7 @@ class LienquanController extends Controller
     {
         $lienquans = Lienquan::
         orderby('lienquans.id','desc')
-        ->paginate(10);
+        ->paginate(1);
         
         return view('admin.lienquan.index',['lienquans'=>$lienquans]);
     }
@@ -28,10 +28,15 @@ class LienquanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {   
+        $thongtin = $request->cookie('thongtin');
+        $trangthai = $request->cookie('trangthai');
+
+        //dd($trangthai);
+        $kichhoat = $request->cookie('kichhoat');
         $ranks = LienquanRank::get();
-        return view('admin.lienquan.create',['ranks'=>$ranks ]);
+        return view('admin.lienquan.create',['ranks'=>$ranks,'thongtin'=>$thongtin, 'trangthai'=>$trangthai,'kichhoat'=>$kichhoat ]);
     }
 
     /**
@@ -56,7 +61,21 @@ class LienquanController extends Controller
         $data['champs'] = $request->champs;
         $data['skins'] = $request->skins;
 
+        $data['thongtin'] = $request->thongtin;
+        if($data['thongtin'] == 'on') $data['thongtin'] = 1; else $data['thongtin'] = 0;
+        $data['trangthai'] = $request->trangthai;
+        if($data['trangthai'] == 'on') $data['trangthai'] = 'on'; else $data['trangthai'] = 'off';
+        $data['kichhoat'] = $request->kichhoat;
+        if($data['kichhoat'] == 'on') $data['kichhoat'] = 'yes'; else $data['kichhoat'] = 'no';
+
         $data['user_id'] = Auth::user()->id;
+
+
+        // Cookie 
+        $thongtin = $data['thongtin'];
+        $trangthai = $data['trangthai'];
+        $kichhoat = $data['kichhoat'];
+
 
         //dd($data);
       
@@ -76,21 +95,17 @@ class LienquanController extends Controller
             'champs' => $data['champs'],
             'skins' => $data['skins'],
 
-            'thongtin' => 1,
-            'trangthai' => 1,
-            'kichhoat' => 1,
-
-            'uutien' => 0,
-
-            'thumb_id' => 1,
-            'image_id' => 1,
-
-
-
+            'thongtin' => $data['thongtin'],
+            'trangthai' => $data['trangthai'],
+            'kichhoat' => $data['kichhoat'],
             'user_id' => $data['user_id']
 
         ]);
-        redirect('/admin/lienquan');
+
+        return redirect('/admin/lienquan')
+        ->withCookie(cookie()->forever('thongtin', $thongtin))
+        ->withCookie(cookie()->forever('trangthai', $trangthai))
+        ->withCookie(cookie()->forever('kichhoat', $kichhoat));
     }
 
     /**
